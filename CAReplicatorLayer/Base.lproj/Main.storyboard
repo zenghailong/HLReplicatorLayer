@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CAReplicatorLayer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,8 +17,40 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YLx-Cx-caa">
+                                <rect key="frame" x="290" y="490" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4pp-hE-oLi">
+                                <rect key="frame" x="28" y="537" width="544" height="31"/>
+                                <connections>
+                                    <action selector="slider:" destination="BYZ-38-t0r" eventType="valueChanged" id="0QZ-ro-hLT"/>
+                                </connections>
+                            </slider>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jw5-Vx-bRr">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Jw5-Vx-bRr" secondAttribute="height" multiplier="1:1" id="Db1-4v-UAn"/>
+                                    <constraint firstAttribute="width" constant="300" id="ZyB-Sy-5YU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jw5-Vx-bRr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="66a-YX-7sw"/>
+                            <constraint firstItem="Jw5-Vx-bRr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Gdf-u9-HyC"/>
+                            <constraint firstItem="4pp-hE-oLi" firstAttribute="top" secondItem="YLx-Cx-caa" secondAttribute="bottom" constant="27" id="RB1-0a-Q7P"/>
+                            <constraint firstItem="YLx-Cx-caa" firstAttribute="top" secondItem="Jw5-Vx-bRr" secondAttribute="bottom" constant="40" id="bQn-7O-D5d"/>
+                            <constraint firstItem="4pp-hE-oLi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="rKI-XM-ot9"/>
+                            <constraint firstItem="4pp-hE-oLi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tNf-AD-aWE"/>
+                            <constraint firstItem="YLx-Cx-caa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zku-3X-XNX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityView" destination="YLx-Cx-caa" id="GWL-Jn-r3x"/>
+                        <outlet property="showView" destination="Jw5-Vx-bRr" id="GFn-Q7-K3d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
